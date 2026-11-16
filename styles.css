@@ -1,0 +1,55 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#262033;line-height:1.65}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 8%;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:5}
+#logo{font-size:28px;font-weight:bold;color:#753bb0;text-decoration:none}
+nav{display:flex;gap:22px;flex-wrap:wrap}nav a,footer a{color:#38284a;text-decoration:none}nav a:hover,footer a:hover{color:#8246bd}
+.hero{padding:110px 12%;text-align:center;background:linear-gradient(135deg,#f5edff,#fff)}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.2;margin:12px 0}.hero p{max-width:650px;margin:15px auto 26px}
+.etiqueta{color:#753bb0;font-weight:bold;text-transform:uppercase;letter-spacing:2px}
+.boton-primario{display:inline-block;border:0;border-radius:30px;padding:12px 26px;background:#753bb0;color:#fff;text-decoration:none;cursor:pointer;font:inherit;transition:background .2s,transform .2s,box-shadow .2s}
+.boton-primario:hover{background:#52247f;transform:translateY(-2px);box-shadow:0 7px 16px #753bb044}
+.seccion{padding:75px 10%}.seccion h2{text-align:center;font-size:32px;color:#5a2889;margin:0 0 28px}.seccion>p{text-align:center}
+.fondo-suave{background:#f8f4fc}.dos-columnas{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;max-width:1050px;margin:auto}
+.dos-columnas img{display:block;width:100%;max-width:380px;margin:auto;border-radius:16px}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin:30px auto;max-width:1100px}
+.tarjeta{background:white;border:1px solid #e9e0f2;border-radius:16px;padding:22px;box-shadow:0 4px 14px #2812390d}
+.tarjeta h3{color:#64319a}.tarjeta img{width:100%;height:145px;object-fit:cover;border-radius:10px}
+form{display:flex;flex-direction:column;gap:9px}input,textarea{border:1px solid #bcb2c8;border-radius:8px;padding:12px;font:inherit}input:focus,textarea:focus{outline:2px solid #a77ad4}
+footer{text-align:center;padding:25px;background:#f1e8fa}footer a{text-decoration:underline}
+
+/* Carrusel de proyectos */
+.menu-toggle{display:none;border:0;background:#eee3fb;color:#53227f;border-radius:8px;font-size:27px;padding:4px 13px;cursor:pointer}
+.carrusel-contenedor{display:flex;align-items:center;gap:10px;max-width:1100px;margin:auto}
+.carrusel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;gap:18px;flex:1;min-width:0;padding:10px 2px}
+.carrusel .tarjeta{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;min-width:0}
+.carrusel-flecha{border:0;border-radius:50%;background:#753bb0;color:white;width:38px;height:38px;flex-shrink:0;cursor:pointer}
+section{scroll-margin-top:90px}
+/* Vista vertical de celular (portrait) */
+@media screen and (max-width:700px) and (orientation:portrait){
+ header{padding:12px 6%;flex-direction:row;flex-wrap:wrap;position:sticky}
+ .menu-toggle{display:block}
+ nav{display:none;flex-direction:column;flex-basis:100%;gap:0;background:#faf6ff;border-radius:12px}
+ nav.abierto{display:flex}
+ nav a{padding:12px 16px;border-bottom:1px solid #e9ddf5}
+ .hero{padding:55px 7%}.hero h1{font-size:30px}
+ .seccion{padding:45px 6%}.seccion h2{font-size:26px}
+ .dos-columnas{grid-template-columns:1fr;gap:20px}
+ .tarjetas:not(.carrusel){grid-template-columns:1fr}
+ .carrusel .tarjeta{flex-basis:100%}
+ .carrusel-flecha{width:30px;height:36px}
+ input,textarea,button{max-width:100%}
+}
+/* Vista horizontal de celular (landscape) */
+@media screen and (max-height:550px) and (orientation:landscape){
+ header{padding:8px 4%;position:relative;flex-wrap:wrap}
+ .menu-toggle{display:block}
+ nav{display:none;flex-basis:100%;flex-direction:row;justify-content:center;gap:12px}
+ nav.abierto{display:flex}
+ nav a{padding:8px}
+ .hero{padding:30px 6%}.hero h1{font-size:28px}
+ .seccion{padding:35px 6%}.seccion h2{font-size:25px}
+ .dos-columnas{grid-template-columns:1fr 1fr;gap:18px}
+ .tarjetas:not(.carrusel){grid-template-columns:repeat(2,minmax(0,1fr))}
+ .carrusel .tarjeta{flex-basis:calc((100% - 18px)/2)}
+}
+@media screen and (max-width:700px) and (orientation:landscape){.carrusel .tarjeta{flex-basis:calc((100% - 18px)/2)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
